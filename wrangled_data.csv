@@ -1,125 +1,125 @@
-"","team","value","league","payroll","win_percentage"
-"1","Dallas Cowboys",9e+09,"NFL",213658382,0.706
-"2","New England Patriots",7e+09,"NFL",193360479,0.471
-"3","Los Angeles Rams",6.9e+09,"NFL",273287325,0.294
-"4","New York Giants",6.8e+09,"NFL",176735170,0.559
-"5","Chicago Bears",6.3e+09,"NFL",125643007,0.176
-"6","Las Vegas Raiders",6.2e+09,"NFL",254089540,0.353
-"7","New York Jets",6.1e+09,"NFL",246031169,0.412
-"8","Washington Commanders",6.05e+09,"NFL",225443194,0.5
-"9","San Francisco 49ers",6e+09,"NFL",254151219,0.765
-"10","Philadelphia Eagles",5.8e+09,"NFL",268857181,0.824
-"11","Miami Dolphins",5.7e+09,"NFL",264249911,0.529
-"12","Houston Texans",5.5e+09,"NFL",170863691,0.206
-"13","Denver Broncos",5.1e+09,"NFL",253516874,0.294
-"14","Seattle Seahawks",5e+09,"NFL",218245995,0.529
-"15","Atlanta Falcons",4.7e+09,"NFL",146615982,0.412
-"16","Minnesota Vikings",4.65e+09,"NFL",235430863,0.765
-"17","Baltimore Ravens",4.63e+09,"NFL",207292546,0.588
-"18","Pittsburgh Steelers",4.63e+09,"NFL",235918001,0.529
-"19","Cleveland Browns",4.62e+09,"NFL",303708121,0.412
-"20","Green Bay Packers",4.6e+09,"NFL",268908809,0.471
-"21","Tennessee Titans",4.4e+09,"NFL",244583387,0.412
-"22","Indianapolis Colts",4.35e+09,"NFL",242296668,0.265
-"23","Kansas City Chiefs",4.3e+09,"NFL",219566751,0.824
-"24","Tampa Bay Buccaneers",4.2e+09,"NFL",258641954,0.471
-"25","Los Angeles Chargers",4.15e+09,"NFL",252378504,0.588
-"26","Carolina Panthers",4.1e+09,"NFL",197334185,0.412
-"27","New Orleans Saints",4.08e+09,"NFL",269668454,0.412
-"28","Jacksonville Jaguars",4e+09,"NFL",237253319,0.529
-"29","Arizona Cardinals",3.8e+09,"NFL",272244546,0.235
-"30","Buffalo Bills",3.7e+09,"NFL",279951292,0.813
-"31","Detroit Lions",3.6e+09,"NFL",208968784,0.529
-"32","Cincinnati Bengals",3.5e+09,"NFL",201252570,0.75
-"33","New York Yankees",7.1e+09,"MLB",278651150,0.506
-"34","Los Angeles Dodgers",4.8e+09,"MLB",240278296,0.617
-"35","Boston Red Sox",4.5e+09,"MLB",182926796,0.481
-"36","Chicago Cubs",4.1e+09,"MLB",189629358,0.512
-"37","San Francisco Giants",3.7e+09,"MLB",187398165,0.488
-"38","New York Mets",2.9e+09,"MLB",343605067,0.463
-"39","Los Angeles Angels",2.7e+09,"MLB",230534276,0.451
-"40","Atlanta Braves",2.6e+09,"MLB",206239131,0.642
-"41","Philadelphia Phillies",2.575e+09,"MLB",245419295,0.556
-"42","St. Louis Cardinals",2.55e+09,"MLB",153793028,0.438
-"43","Houston Astros",2.25e+09,"MLB",237107748,0.556
-"44","Texas Rangers",2.225e+09,"MLB",251332754,0.556
-"45","Seattle Mariners",2.2e+09,"MLB",134466903,0.543
-"46","Toronto Blue Jays",2.1e+09,"MLB",214630885,0.549
-"47","Chicago White Sox",2.05e+09,"MLB",162863836,0.377
-"48","Washington Nationals",2e+09,"MLB",93378663,0.438
-"49","San Diego Padres",1.75e+09,"MLB",256045688,0.506
-"50","Baltimore Orioles",1.713e+09,"MLB",71061047,0.623
-"51","Milwaukee Brewers",1.605e+09,"MLB",125338345,0.568
-"52","Colorado Rockies",1.475e+09,"MLB",171026607,0.364
-"53","Detroit Tigers",1.45e+09,"MLB",121494514,0.481
-"54","Minnesota Twins",1.39e+09,"MLB",156104540,0.537
-"55","Arizona Diamondbacks",1.38e+09,"MLB",119257651,0.519
-"56","Pittsburgh Pirates",1.32e+09,"MLB",68945975,0.469
-"57","Cleveland Guardians",1.3e+09,"MLB",91861627,0.469
-"58","Tampa Bay Rays",1.25e+09,"MLB",79354272,0.611
-"59","Kansas City Royals",1.2e+09,"MLB",96083853,0.346
-"60","Cincinnati Reds",1.19e+09,"MLB",96577288,0.506
-"61","Oakland Athletics",1.18e+09,"MLB",62243227,0.309
-"62","Miami Marlins",1e+09,"MLB",105435809,0.519
-"63","New York Rangers",2.2e+09,"NHL",97487521,0.652
-"64","Toronto Maple Leafs",2e+09,"NHL",83113008,0.677
-"65","Montreal Canadiens",1.85e+09,"NHL",98123916,0.415
-"66","Chicago Blackhawks",1.5e+09,"NHL",60870280,0.36
-"67","Boston Bruins",1.4e+09,"NHL",94130413,0.823
-"68","Los Angeles Kings",1.3e+09,"NHL",76672354,0.634
-"69","Edmonton Oilers",1.275e+09,"NHL",98846219,0.665
-"70","Philadelphia Flyers",1.25e+09,"NHL",88867977,0.457
-"71","Washington Capitals",1.2e+09,"NHL",80914968,0.488
-"72","Seattle Kraken",1.05e+09,"NHL",88208132,0.61
-"73","Detroit Red Wings",1.03e+09,"NHL",64826880,0.488
-"74","New York Islanders",1.02e+09,"NHL",83805946,0.567
-"75","Vancouver Canucks",1.01e+09,"NHL",85870127,0.506
-"76","Tampa Bay Lightning",1e+09,"NHL",105854447,0.598
-"77","Pittsburgh Penguins",9.9e+08,"NHL",89525944,0.555
-"78","Vegas Golden Knights",9.65e+08,"NHL",104738822,0.677
-"79","New Jersey Devils",9.6e+08,"NHL",96729337,0.683
-"80","Dallas Stars",9.25e+08,"NHL",94053586,0.659
-"81","St. Louis Blues",8.8e+08,"NHL",78642484,0.494
-"82","Colorado Avalanche",8.6e+08,"NHL",89631153,0.665
-"83","Calgary Flames",8.55e+08,"NHL",95374728,0.567
-"84","Minnesota Wild",8.5e+08,"NHL",77910240,0.628
-"85","Nashville Predators",8.1e+08,"NHL",81601292,0.561
-"86","Ottawa Senators",8e+08,"NHL",73259688,0.524
-"87","San Jose Sharks",7.4e+08,"NHL",78487516,0.366
-"88","Anaheim Ducks",7.25e+08,"NHL",77394905,0.354
-"89","Winnipeg Jets",6.5e+08,"NHL",88526572,0.579
-"90","Carolina Hurricanes",6.4e+08,"NHL",97131496,0.689
-"91","Columbus Blue Jackets",6.2e+08,"NHL",69956896,0.36
-"92","Buffalo Sabres",6.1e+08,"NHL",75632267,0.555
-"93","Florida Panthers",5.5e+08,"NHL",95308355,0.561
-"94","Arizona Coyotes",4.5e+08,"NHL",55331912,0.427
-"95","Golden State Warriors",7.7e+09,"NBA",208270000,0.537
-"96","New York Knicks",6.6e+09,"NBA",162530000,0.573
-"97","Los Angeles Lakers",6.4e+09,"NBA",166560000,0.524
-"98","Boston Celtics",4.7e+09,"NBA",183390000,0.695
-"99","Los Angeles Clippers",4.65e+09,"NBA",198310000,0.537
-"100","Chicago Bulls",4.6e+09,"NBA",163590000,0.488
-"101","Dallas Mavericks",4.5e+09,"NBA",159480000,0.463
-"102","Houston Rockets",4.4e+09,"NBA",141350000,0.268
-"103","Philadelphia 76ers",4.3e+09,"NBA",167360000,0.659
-"104","Toronto Raptors",4.1e+09,"NBA",162100000,0.5
-"105","Phoenix Suns",4e+09,"NBA",1.84e+08,0.549
-"106","Miami Heat",3.9e+09,"NBA",180050000,0.537
-"107","Brooklyn Nets",3.85e+09,"NBA",157270000,0.549
-"108","Washington Wizards",3.5e+09,"NBA",135880000,0.427
-"109","Denver Nuggets",3e+09,"NBA",177890000,0.646
-"110","Cleveland Cavaliers",3e+09,"NBA",164540000,0.622
-"111","Sacramento Kings",3e+09,"NBA",146860000,0.585
-"112","Atlanta Hawks",3.33e+09,"NBA",155610000,0.5
-"113","San Antonio Spurs",3e+09,"NBA",107850000,0.268
-"114","Milwaukee Bucks",3e+09,"NBA",183580000,0.707
-"115","Utah Jazz",3e+09,"NBA",135980000,0.451
-"116","Portland Trail Blazers",3.08e+09,"NBA",157360000,0.402
-"117","Detroit Pistons",3e+09,"NBA",134800000,0.207
-"118","Oklahoma City Thunder",3.05e+09,"NBA",125220000,0.488
-"119","Charlotte Hornets",3e+09,"NBA",132350000,0.329
-"120","Orlando Magic",2.95e+09,"NBA",130960000,0.415
-"121","Indiana Pacers",2.9e+09,"NBA",117590000,0.427
-"122","New Orleans Pelicans",2.55e+09,"NBA",168230000,0.512
-"123","Minnesota Timberwolves",2.5e+09,"NBA",162930000,0.512
-"124","Memphis Grizzlies",2.4e+09,"NBA",116810000,0.622
+"","team","value","league","payroll","win_percentage","venue","longitude","latitude"
+"1","Dallas Cowboys",9e+09,"NFL",213658382,0.706,"Cowboys Stadium",-97.09277778,32.74777778
+"2","New England Patriots",7e+09,"NFL",193360479,0.471,"Gillette Stadium",-71.26434444,42.09094444
+"3","Los Angeles Rams",6.9e+09,"NFL",273287325,0.294,"SoFi Stadium",-118.33963,33.953587
+"4","New York Giants",6.8e+09,"NFL",176735170,0.559,"MetLife Stadium",-74.07444444,40.81361111
+"5","Chicago Bears",6.3e+09,"NFL",125643007,0.176,"Soldier Field",-87.61666667,41.8625
+"6","Las Vegas Raiders",6.2e+09,"NFL",254089540,0.353,"Allegiant Stadium",-115.183952,36.090794
+"7","New York Jets",6.1e+09,"NFL",246031169,0.412,"MetLife Stadium",-74.07444444,40.81361111
+"8","Washington Commanders",6.05e+09,"NFL",225443194,0.5,NA,NA,NA
+"9","San Francisco 49ers",6e+09,"NFL",254151219,0.765,"Candlestick Park",-122.3861111,37.71361111
+"10","Philadelphia Eagles",5.8e+09,"NFL",268857181,0.824,"Lincoln Financial Field",-75.1675,39.90083333
+"11","Miami Dolphins",5.7e+09,"NFL",264249911,0.529,"Sun Life Stadium",-80.23888889,25.95805556
+"12","Houston Texans",5.5e+09,"NFL",170863691,0.206,"Reliant Stadium",-95.41083333,29.68472222
+"13","Denver Broncos",5.1e+09,"NFL",253516874,0.294,"Sports Authority Field at Mile High",-105.02,39.74388889
+"14","Seattle Seahawks",5e+09,"NFL",218245995,0.529,"CenturyLink Field",-122.3316667,47.59527778
+"15","Atlanta Falcons",4.7e+09,"NFL",146615982,0.412,"Georgia Dome",-84.40083333,33.7575
+"16","Minnesota Vikings",4.65e+09,"NFL",235430863,0.765,"Hubert H. Humphrey Metrodome",-93.25805556,44.97388889
+"17","Baltimore Ravens",4.63e+09,"NFL",207292546,0.588,"M&T Bank Stadium",-76.62277778,39.27805556
+"18","Pittsburgh Steelers",4.63e+09,"NFL",235918001,0.529,"Heinz Field",-80.01583333,40.44666667
+"19","Cleveland Browns",4.62e+09,"NFL",303708121,0.412,"FirstEnergy Stadium",-81.69944444,41.50611111
+"20","Green Bay Packers",4.6e+09,"NFL",268908809,0.471,"Lambeau Field",-88.06222222,44.50138889
+"21","Tennessee Titans",4.4e+09,"NFL",244583387,0.412,"LP Field",-86.77138889,36.16638889
+"22","Indianapolis Colts",4.35e+09,"NFL",242296668,0.265,"Lucas Oil Stadium",-86.16380556,39.76005556
+"23","Kansas City Chiefs",4.3e+09,"NFL",219566751,0.824,"Arrowhead Stadium",-94.48388889,39.04888889
+"24","Tampa Bay Buccaneers",4.2e+09,"NFL",258641954,0.471,"Raymond James Stadium",-82.50333333,27.97583333
+"25","Los Angeles Chargers",4.15e+09,"NFL",252378504,0.588,NA,NA,NA
+"26","Carolina Panthers",4.1e+09,"NFL",197334185,0.412,"Bank of America Stadium",-80.85277778,35.22583333
+"27","New Orleans Saints",4.08e+09,"NFL",269668454,0.412,"Mercedes-Benz Superdome",-90.08111111,29.95083333
+"28","Jacksonville Jaguars",4e+09,"NFL",237253319,0.529,"EverBank Field",-81.6375,30.32388889
+"29","Arizona Cardinals",3.8e+09,"NFL",272244546,0.235,"University of Phoenix Stadium",-112.2625,33.5275
+"30","Buffalo Bills",3.7e+09,"NFL",279951292,0.813,"Ralph Wilson Stadium",-78.78694444,42.77361111
+"31","Detroit Lions",3.6e+09,"NFL",208968784,0.529,"Ford Field",-83.04555556,42.34
+"32","Cincinnati Bengals",3.5e+09,"NFL",201252570,0.75,"Paul Brown Stadium",-84.51603889,39.09544444
+"33","New York Yankees",7.1e+09,"MLB",278651150,0.506,"Yankee Stadium",-73.92638889,40.82916667
+"34","Los Angeles Dodgers",4.8e+09,"MLB",240278296,0.617,"Dodger Stadium",-118.24,34.07361111
+"35","Boston Red Sox",4.5e+09,"MLB",182926796,0.481,"Fenway Park",-71.0975,42.34638889
+"36","Chicago Cubs",4.1e+09,"MLB",189629358,0.512,"Wrigley Field",-87.65555556,41.94833333
+"37","San Francisco Giants",3.7e+09,"MLB",187398165,0.488,"AT&T Park",-122.3894444,37.77833333
+"38","New York Mets",2.9e+09,"MLB",343605067,0.463,"Citi Field",-73.84583333,40.75694444
+"39","Los Angeles Angels",2.7e+09,"MLB",230534276,0.451,"Angel Stadium of Anaheim",-117.8827778,33.80027778
+"40","Atlanta Braves",2.6e+09,"MLB",206239131,0.642,"Turner Field",-84.38944444,33.73527778
+"41","Philadelphia Phillies",2575000000,"MLB",245419295,0.556,"Citizens Bank Park",-75.16638889,39.90583333
+"42","St. Louis Cardinals",2.55e+09,"MLB",153793028,0.438,"Busch Stadium",-90.19305556,38.6225
+"43","Houston Astros",2.25e+09,"MLB",237107748,0.556,"Minute Maid Park",-95.35555556,29.75694444
+"44","Texas Rangers",2225000000,"MLB",251332754,0.556,"Rangers Ballpark in Arlington",-97.08277778,32.75138889
+"45","Seattle Mariners",2.2e+09,"MLB",134466903,0.543,"Safeco Field",-122.3325,47.59138889
+"46","Toronto Blue Jays",2.1e+09,"MLB",214630885,0.549,"Rogers Centre",-79.38916667,43.64138889
+"47","Chicago White Sox",2.05e+09,"MLB",162863836,0.377,"U.S. Cellular Field",-87.63388889,41.83
+"48","Washington Nationals",2e+09,"MLB",93378663,0.438,"Nationals Park",-77.0075,38.87277778
+"49","San Diego Padres",1.75e+09,"MLB",256045688,0.506,"Petco Park",-117.1565998,32.70729983
+"50","Baltimore Orioles",1713000000,"MLB",71061047,0.623,"Oriole Park at Camden Yards",-76.62166667,39.28388889
+"51","Milwaukee Brewers",1605000000,"MLB",125338345,0.568,"Miller Park",-87.97111111,43.02833333
+"52","Colorado Rockies",1475000000,"MLB",171026607,0.364,"Coors Field",-104.9941667,39.75611111
+"53","Detroit Tigers",1.45e+09,"MLB",121494514,0.481,"Comerica Park",-83.04861111,42.33916667
+"54","Minnesota Twins",1.39e+09,"MLB",156104540,0.537,"Target Field",-93.27833333,44.98166667
+"55","Arizona Diamondbacks",1.38e+09,"MLB",119257651,0.519,"Chase Field",-112.0669444,33.44527778
+"56","Pittsburgh Pirates",1.32e+09,"MLB",68945975,0.469,"PNC Park",-80.00583333,40.44694444
+"57","Cleveland Guardians",1.3e+09,"MLB",91861627,0.469,NA,NA,NA
+"58","Tampa Bay Rays",1.25e+09,"MLB",79354272,0.611,"Tropicana Field",-82.65333333,27.76833333
+"59","Kansas City Royals",1.2e+09,"MLB",96083853,0.346,"Kauffman Stadium",-94.48055556,39.05138889
+"60","Cincinnati Reds",1.19e+09,"MLB",96577288,0.506,"Great American Ball Park",-84.50666667,39.0975
+"61","Oakland Athletics",1.18e+09,"MLB",62243227,0.309,"O.co Coliseum",-122.2005556,37.75166667
+"62","Miami Marlins",1e+09,"MLB",105435809,0.519,"Marlins Park",-80.21972222,25.77805556
+"63","New York Rangers",2.2e+09,"NHL",97487521,0.652,"Madison Square Garden",-73.99361,40.75056
+"64","Toronto Maple Leafs",2e+09,"NHL",83113008,0.677,"Air Canada Centre",-79.37917,43.64333
+"65","Montreal Canadiens",1.85e+09,"NHL",98123916,0.415,"Bell Centre",-73.56944,45.49611
+"66","Chicago Blackhawks",1.5e+09,"NHL",60870280,0.36,"United Center",-87.67417,41.88056
+"67","Boston Bruins",1.4e+09,"NHL",94130413,0.823,"TD Garden",-71.0622278,42.3663028
+"68","Los Angeles Kings",1.3e+09,"NHL",76672354,0.634,"Staples Center",-118.26722,34.04306
+"69","Edmonton Oilers",1275000000,"NHL",98846219,0.665,"Rexall Place",-113.45611,53.57139
+"70","Philadelphia Flyers",1.25e+09,"NHL",88867977,0.457,"Wells Fargo Center",-75.17194,39.90111
+"71","Washington Capitals",1.2e+09,"NHL",80914968,0.488,"Verizon Center",-77.02083,38.89806
+"72","Seattle Kraken",1.05e+09,"NHL",88208132,0.61,NA,NA,NA
+"73","Detroit Red Wings",1.03e+09,"NHL",64826880,0.488,"Joe Louis Arena",-83.05139,42.32528
+"74","New York Islanders",1.02e+09,"NHL",83805946,0.567,"Nassau Veterans Memorial Coliseum",-73.59056,40.72278
+"75","Vancouver Canucks",1.01e+09,"NHL",85870127,0.506,"Rogers Arena",-123.10889,49.27778
+"76","Tampa Bay Lightning",1e+09,"NHL",105854447,0.598,"Tampa Bay Times Forum",-82.45194,27.94278
+"77","Pittsburgh Penguins",9.9e+08,"NHL",89525944,0.555,"Consol Energy Center",-79.98917,40.43944
+"78","Vegas Golden Knights",965000000,"NHL",104738822,0.677,NA,NA,NA
+"79","New Jersey Devils",9.6e+08,"NHL",96729337,0.683,"Prudential Center",-74.17111,40.73361
+"80","Dallas Stars",925000000,"NHL",94053586,0.659,"American Airlines Center",-96.81028,32.79056
+"81","St. Louis Blues",8.8e+08,"NHL",78642484,0.494,"Scottrade Center",-90.2025,38.62667
+"82","Colorado Avalanche",8.6e+08,"NHL",89631153,0.665,"Pepsi Center",-105.0075,39.74861
+"83","Calgary Flames",855000000,"NHL",95374728,0.567,"Scotiabank Saddledome",-114.05194,51.0375
+"84","Minnesota Wild",8.5e+08,"NHL",77910240,0.628,"Xcel Energy Center",-93.10111,44.94472
+"85","Nashville Predators",8.1e+08,"NHL",81601292,0.561,"Bridgestone Arena",-86.77861,36.15917
+"86","Ottawa Senators",8e+08,"NHL",73259688,0.524,"Canadian Tire Centre",-75.92722,45.29694
+"87","San Jose Sharks",7.4e+08,"NHL",78487516,0.366,"SAP Center at San Jose",-121.90111,37.33278
+"88","Anaheim Ducks",725000000,"NHL",77394905,0.354,"Honda Center",-117.87667,33.80778
+"89","Winnipeg Jets",6.5e+08,"NHL",88526572,0.579,"MTS Centre",-97.14361,49.89278
+"90","Carolina Hurricanes",6.4e+08,"NHL",97131496,0.689,"PNC Arena",-78.72194,35.80333
+"91","Columbus Blue Jackets",6.2e+08,"NHL",69956896,0.36,"Nationwide Arena",-83.0061111,39.9692833
+"92","Buffalo Sabres",6.1e+08,"NHL",75632267,0.555,"First Niagara Center",-78.87639,42.875
+"93","Florida Panthers",5.5e+08,"NHL",95308355,0.561,"BB&T Center (Sunrise, Florida)",-80.32556,26.15833
+"94","Arizona Coyotes",4.5e+08,"NHL",55331912,0.427,NA,NA,NA
+"95","Golden State Warriors",7.7e+09,"NBA",208270000,0.537,"Oracle Arena",-122.2030556,37.75027778
+"96","New York Knicks",6.6e+09,"NBA",162530000,0.573,"Madison Square Garden",-73.99361111,40.75055556
+"97","Los Angeles Lakers",6.4e+09,"NBA",166560000,0.524,"Staples Center",-118.2672222,34.04305556
+"98","Boston Celtics",4.7e+09,"NBA",183390000,0.695,"TD Garden",-71.06222778,42.36630278
+"99","Los Angeles Clippers",4.65e+09,"NBA",198310000,0.537,"Staples Center",-118.2672222,34.04305556
+"100","Chicago Bulls",4.6e+09,"NBA",163590000,0.488,"United Center",-87.67416667,41.88055556
+"101","Dallas Mavericks",4.5e+09,"NBA",159480000,0.463,"American Airlines Center",-96.81027778,32.79055556
+"102","Houston Rockets",4.4e+09,"NBA",141350000,0.268,"Toyota Center",-95.36222222,29.75083333
+"103","Philadelphia 76ers",4.3e+09,"NBA",167360000,0.659,"Wells Fargo Center",-75.17194444,39.90111111
+"104","Toronto Raptors",4.1e+09,"NBA",162100000,0.5,NA,NA,NA
+"105","Phoenix Suns",4e+09,"NBA",184000000,0.549,"US Airways Center",-112.0713889,33.44583333
+"106","Miami Heat",3.9e+09,"NBA",180050000,0.537,"American Airlines Arena",-80.18805556,25.78138889
+"107","Brooklyn Nets",3.85e+09,"NBA",157270000,0.549,"Barclays Center",-73.97468889,40.68265
+"108","Washington Wizards",3.5e+09,"NBA",135880000,0.427,"Verizon Center",-77.02083333,38.89805556
+"109","Denver Nuggets",3e+09,"NBA",177890000,0.646,"Pepsi Center",-105.0075,39.74861111
+"110","Cleveland Cavaliers",3e+09,"NBA",164540000,0.622,"Quicken Loans Arena",-81.68805556,41.49638889
+"111","Sacramento Kings",3e+09,"NBA",146860000,0.585,"Sleep Train Arena",-121.5180556,38.64916667
+"112","Atlanta Hawks",3.33e+09,"NBA",155610000,0.5,"Philips Arena",-84.39638889,33.75722222
+"113","San Antonio Spurs",3e+09,"NBA",107850000,0.268,"AT&T Center",-98.4375,29.42694444
+"114","Milwaukee Bucks",3e+09,"NBA",183580000,0.707,"BMO Harris Bradley Center",-87.91694444,43.04361111
+"115","Utah Jazz",3e+09,"NBA",135980000,0.451,"EnergySolutions Arena",-111.9011111,40.76833333
+"116","Portland Trail Blazers",3.08e+09,"NBA",157360000,0.402,"Rose Garden",-122.6666667,45.53166667
+"117","Detroit Pistons",3e+09,"NBA",134800000,0.207,"The Palace of Auburn Hills",-83.24555556,42.69694444
+"118","Oklahoma City Thunder",3.05e+09,"NBA",125220000,0.488,"Chesapeake Energy Arena",-97.515,35.46333333
+"119","Charlotte Hornets",3e+09,"NBA",132350000,0.329,NA,NA,NA
+"120","Orlando Magic",2.95e+09,"NBA",130960000,0.415,"Amway Center",-81.38361111,28.53916667
+"121","Indiana Pacers",2.9e+09,"NBA",117590000,0.427,"Bankers Life Fieldhouse",-86.15555556,39.76388889
+"122","New Orleans Pelicans",2.55e+09,"NBA",168230000,0.512,NA,NA,NA
+"123","Minnesota Timberwolves",2.5e+09,"NBA",162930000,0.512,"Target Center",-93.27611111,44.97944444
+"124","Memphis Grizzlies",2.4e+09,"NBA",116810000,0.622,"FedExForum",-90.05055556,35.13833333

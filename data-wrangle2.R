@@ -5,6 +5,8 @@ library(DT)
 library(ggrepel)
 library(ggplot2)
 library(scales)
+library(RCurl)
+library(rjson)
 
 ###############
 # import data #
@@ -114,7 +116,30 @@ stadiums_wrangle <- stadiums |>
   mutate(team = `Team(s)`, venue = Venue, latitude = Latitude, longitude = Longitude) |>
   select(team, venue, longitude, latitude)
 
+#this code is from ("https://rstudio-pubs-static.s3.amazonaws.com/257443_663
+#9015f2f144de7af35ce4615902dfd.html") which is an open source reproducable code 
+#to gather the NHL stadium locations
 
+url<-'https://raw.githubusercontent.com/nhlscorebot/arenas/master/teams.json'
+rawjson<-getURL(url)
+locations<-fromJSON(rawjson)
 
+arenas<-data.frame('team'=names(locations))
+uloc<-unlist(locations)
+arenas$name<-uloc[seq(1, length(uloc), by=3)]
+arenas$lat<-uloc[seq(2, length(uloc), by=3)]
+arenas$lng<-uloc[seq(3, length(uloc), by=3)]
+arenas$lat<-as.numeric(arenas$lat)
+arenas$lng<-as.numeric(arenas$lng)
+arenas$label<-paste0(arenas$team, ' - ', arenas$name)
 
-write.csv(all_teams_combined, file = "wrangled_data.csv")
+stadiums1_wrangle <- arenas |>
+  mutate(venue = name, latitude = lat, longitude = lng) |>
+  select(-label, -lng, -lat, -name)
+
+all_stadiums <- bind_rows(stadiums_wrangle, stadiums1_wrangle)
+
+wrangled_data <- all_teams_combined |>
+  left_join(all_stadiums, by = "team")
+
+write.csv(wrangled_data, file = "wrangled_data.csv")
