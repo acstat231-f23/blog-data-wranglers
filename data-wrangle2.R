@@ -108,4 +108,4 @@ nba_combined <- nba_val_wrangle %>%
 all_teams_combined <- bind_rows(nfl_combined, mlb_combined, nhl_combined, nba_combined)
 
 
-
+write.csv(all_teams_combined, file = "wrangled_data.csv")
