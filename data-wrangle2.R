@@ -22,6 +22,7 @@ NHL_Win <- read_csv("data/nhl-win.csv")
 NBA_Value <- read_csv("data/nba-value.csv")
 NBA_Payroll <- read_csv("data/nba-payroll.csv")
 NBA_Win <- read_csv("data/nba-win.csv")
+stadiums <- read_csv("data/stadium-loc.csv")
 
 
 ###############
@@ -106,6 +107,14 @@ nba_combined <- nba_val_wrangle %>%
 
 # Combine all leagues into one dataset
 all_teams_combined <- bind_rows(nfl_combined, mlb_combined, nhl_combined, nba_combined)
+
+
+#stadiums
+stadiums_wrangle <- stadiums |>
+  mutate(team = `Team(s)`, venue = Venue, latitude = Latitude, longitude = Longitude) |>
+  select(team, venue, longitude, latitude)
+
+
 
 
 write.csv(all_teams_combined, file = "wrangled_data.csv")
