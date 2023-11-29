@@ -50,6 +50,69 @@ ggplot(data = cars, aes(x = speed, y = dist)) +
   theme_classic()
 ```
 
+#scatterplot
+```{r}
+scatter_data <- read.csv("wrangled_data.csv")
+mlb_data <- scatter_data |>
+  filter(league == "MLB")
+
+nba_data <- scatter_data |>
+  filter(league == "NBA")
+
+nfl_data <- scatter_data |>
+  filter(league == "NFL")
+
+nhl_data <- scatter_data |>
+  filter(league == "NHL")
+
+ggplot(data = mlb_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "MLB: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2023 Win Percentage"
+  )
+
+ggplot(data = nfl_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "NFL: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  )
+
+ggplot(data = nba_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "NBA: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  )
+
+ggplot(data = nhl_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "NHL: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  )
+
+ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "The Relationship Between Payroll and Winning Percentage by League",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  ) 
+```
+
+
+
 Examples and additional guidance are provided below. 
 
 Take note of the the default code chunk options in the `setup` code chunk. For example, unlike the rest of the Rmd files we worked in this semester, the default code chunk option is `echo = FALSE`, so you will need to set `echo  = TRUE` for any code chunks you would like to display in the blog. You should be thoughtful and intentional about the code you choose to display. 
