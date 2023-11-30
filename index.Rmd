@@ -112,6 +112,23 @@ ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)
 ```
 
 
+```{r}
+bar_data <- scatter_data |>
+  arrange(desc(payroll)) |>
+  head(30)
+
+ggplot(bar_data, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
+  geom_col() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
+  labs(
+    title = "30 Teams with the Highest Payroll",
+    x = "Team",
+    y = "Payroll ($)",
+    fill = "League"
+  ) 
+```
+
 
 Examples and additional guidance are provided below. 
 
