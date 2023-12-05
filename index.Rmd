@@ -117,6 +117,21 @@ bar_data <- scatter_data |>
   arrange(desc(payroll)) |>
   head(30)
 
+bar_data2 <- scatter_data |>
+  arrange(desc(value)) |>
+  head(25)
+
+ggplot(bar_data2, aes(x = reorder(team, -value), y = value, fill = league)) +
+  geom_col() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
+  labs(
+    title = "25 Teams with the Highest Valuation",
+    x = "Team",
+    y = "Total Valuation ($)",
+    fill = "League"
+  ) 
+
 ggplot(bar_data, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
   geom_col() +
   theme_minimal() +
