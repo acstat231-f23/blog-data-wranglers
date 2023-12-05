@@ -23,6 +23,12 @@ library(leaflet)
 library(dplyr)
 ```
 
+```{r}
+#| out.width: 120%
+#| fig.align: center
+knitr::include_graphics("img/TopImage.jpeg")
+```
+
 # Intro
 
 This is an R Markdown blog template. This document will be knit to HTML to produce a webpage that will be hosted publicly via GitHub.
