@@ -1,7 +1,7 @@
 ---
-title: "Your Project Title Here"
+title: "Evaluating the Economics and Success of US Major Sports Teams"
 author: "Daniel Arizmendi, Jonah Luetke, Tyler McCord"
-date: "Add a date"
+date: "7 December 2023"
 output:
   rmdformats::readthedown:
     highlight: "kate"
@@ -31,34 +31,95 @@ knitr::include_graphics("img/TopImage.jpeg")
 
 # Intro
 
-This is an R Markdown blog template. This document will be knit to HTML to produce a webpage that will be hosted publicly via GitHub.
-
-## Website publication work flow
-
-1. Edit Rmd
-
-2. Knit to HTML to view progress. You may need to click "Open in Browser" for some content to show (sometimes content won't show until you actually push your changes to GitHub and view the published website).
-
-3. Commit and push changes when you are ready. The website may take a couple minutes to update automatically after the push, but you may need to clear your browser's cache or view the page in a private/incognito window to see the changes more quickly. 
+Professional sports economics is a controversial topic with a variety of factors that influence team performance, financial success, and overall competitiveness within leagues. There have been many discussions throughout the years in which people argue that sports teams should be owned by the cities in which they reside instead of being privately owned in an attempt to make them more accessible to the general public, along with the viewpoint that professional athletes are being paid too handsomely. Generally, people want to know if there is a correlation between spending and team success. While one would think that if a team spends more on resources and players they will win more, we think that there are many cases involving some of the notable franchises throughout history that have shown us that this isn’t always true. Additionally, there is also a prevailing narrative that the dominance of "big-market teams" in major cities like Los Angeles and New York is often attributed to their larger fan bases, extensive media markets, and lucrative sponsorship opportunities. Similarly to the case of spending, we also think that being located in a major city and having a massive fanbase doesn’t always translate to on-field victories. Hence, in our blog project we seek to expose these prevailing notions regarding team value, payroll, and winning percentages. The underlying questions to our investigations are: To what extent do teams' locations influence their value, payroll expenditures, and on-field success? Is there truly a relationship between spending more and winning more? How does this change between sports? These questions ultimately serve as the backbone of this continuous discussion that newscasters, franchise owners, fans, and even players have on a daily basis.
+This project serves as an extension to our previous shiny project which initially explored annual revenue among major sports leagues across the entire world, not just the United States. In this project, we also decided to include the highest paid player across each league for each year. Interestingly enough, we found that, generally, the league with the highest revenue also had the highest paid player among the leagues. Therefore, this led us to want to explore this question further, but we wanted to narrow it down to see if a team's performance could be dependent on how much they spend, their valuations, and their geographical location. Unlike the shiny project, we did not have an international scope for this project, rather we focused just on teams in the United States across the NFL, MLB, NBA and NHL as these are the most popular sports leagues in the country. 
 
 
-# Content
+# Data/Procedure
 
-You can include text, `code`, and output as usual. Remember to take full advantage of Markdown and follow our [Style Guide](https://acstat231-f22.github.io/home/style-guide.html#Text_narration).
+All the data used in this project was found on the internet. We created data sets that included team valuation, payroll, win percent, and stadium location (longitude and latitude) for each team in each league. We cleaned this data by changing variable names and correcting old stadium locations. We then merged these data sets into a primary dataset that included the variables for all the teams in all the leagues.
 
-```{r ggplot-example, fig.align="left", out.width="100%"}
-ggplot(data = cars, aes(x = speed, y = dist)) + 
-  geom_point() + 
-  labs(x = "Speed of car (mph)",
-       y = "Distance taken to stop (ft)",
-       title = "Stopping distance increases with faster speeds",
-       subtitle = "Based on 1920s study") +
-  theme_classic()
+For the visualization and analytical part of our project, we adopted a multi-faceted approach. We first used a bar chart to illustrate the teams with the highest payrolls, offering insights into the financial stature of the teams. Subsequently, we created two scatterplots: one comparing win percentage with team valuation and another juxtaposing team valuation against payroll. These visualizations aimed to explore potential correlations between a team's financial resources and their performance. Lastly, we developed an interactive map pinpointing each team's location, enriched with related data, thereby providing a spatial dimension to our analysis. This comprehensive approach allowed us to draw nuanced insights into the dynamics of team performance and valuation across leagues.
+
+
+
+# Results
+
+## Team Value
+
+When we visualize the team valuation data across the four major sports leagues, we find a noteworthy observation that stems from an analysis of the 25 teams with the highest valuation. Our bar chart (Figure 1, below), which has “Teams” on the x-axis “Total Valuation” on the y-axis, we see that a staggering 18 out of the top 25 are affiliated with the National Football League (NFL). This statistic emphasizes the NFL's popularity, and we can conclude that it is the most watched sports league in the country. For those seven non-NFL teams that are in the top 25 highest valued, we would expect that they have had a lot of success. Our rationale for this assumption is that in their elevated valuations not only within their respective leagues but also across all of the sports teams in the United States. We assumed that this financial standing positions them as economic powerhouses, suggesting that their prowess extends beyond the realms of revenue generation to potentially encompass on-field triumphs and enduring success in their respective sports. 
+
+
+```{r}
+scatter_data <- read.csv("wrangled_data.csv")
+
+bar_data_value <- scatter_data |>
+  arrange(desc(value)) |>
+  head(25)
+
+ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league)) +
+  geom_col() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
+  labs(
+    title = "25 Teams with the Highest Valuation",
+    x = "Team",
+    y = "Total Valuation ($)",
+    fill = "League",
+    caption = "Figure 1"
+  ) 
 ```
+
+## Team Payroll
+
+We then dove into the payroll commitments that teams make to their players. Utilizing another bar chart to examine the top 25 teams (x-axis) with the highest payrolls (y-axis), we identified that 10 of these teams also appeared on the list of the 25 teams with the highest valuation. This observation, however, seemed less significant, indicating that less than half of the teams valued the highest don't always allocate a proportionate share of their finances to player salaries. Of course, our inquiry only examines team spending over the most recent season. Nonetheless, we also found similar trends in the payroll graph to the valuation: 18 out of the 25 highest payroll teams hailed from the NFL, while the remaining 7 belonged to the MLB. This ultimately, suggests that the NFL, in particular, places substantial emphasis on player salaries compared to other leagues. 
+
+```{r}
+bar_data_payroll <- scatter_data |>
+  arrange(desc(payroll)) |>
+  head(25)
+
+ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
+  geom_col() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
+  labs(
+    title = "30 Teams with the Highest Payroll",
+    x = "Team",
+    y = "Payroll ($)",
+    fill = "League"
+  ) 
+
+correlation_val <- cor(scatter_data$value, scatter_data$payroll)
+
+ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
+  geom_point() +
+  theme_minimal() +
+  geom_text(
+    x = 1700000000,
+    y = 320000000,
+    label = paste("r=", round(correlation_val, 3)),
+    show.legend = FALSE,
+    color = "black"
+  ) +
+  labs(
+    title = "Relationship between Value and Payroll",
+    subtitle = "Data from 2022-23 Seasons",
+    x = "Team Valuation ($USD)",
+    y = "Payroll ($USD)",
+    color = "League"
+  )
+```
+
+
+## Relationship between Payroll and Winning Percentage
+
+In our analysis of winning percentage and payroll, we found there tends to be a positive relationship between how much players are paid and the teams’ success across all four leagues in the United States. We put together scatter plots for each league with the team’s  “Player Payroll” on the x-axis and the team’s “Winning Percentage” on the y-axis. This positive correlation suggests that a considerable investment in player salaries aligns with more success in professional sports in the United States. More success also generally leads to more ticket sales and investment in the franchise, which likely results in a higher valuation for the franchise. A higher payroll also signals that these teams have some of the best players in their respective leagues, as star players always charge more. These findings provide valuable insights into the intricate dynamics between financial investment in player talent and the competitive performance of sports teams, which ultimately go to show that, in most cases, teams that have more success are paying their players more, and also suggests that they have some of the most highly sought-after players in their league. 
+
 
 #scatterplot
 ```{r}
-scatter_data <- read.csv("wrangled_data.csv")
+
 mlb_data <- scatter_data |>
   filter(league == "MLB")
 
@@ -118,40 +179,14 @@ ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)
 ```
 
 
+## Relationship Between Value and Payroll
+	
+Lastly, we found that, across the major professional sports leagues in the United States, there is another discernable positive correlation between a team's valuation and the investments made in player salaries. After creating a scatter plot with “Valuation” on the x-axis and “Payroll” on the y-axis and including the teams from each league, we found a consistent pattern where teams with higher valuations tended to allocate more compensation towards their players. This was most evident when comparing the NHL and the NFL, as they have the largest discrepancies between valuation and payroll. NHL franchises have, on average, lower valuations than any other league franchises in the United States. The opposite is true for the NFL as football teams tend to have higher valuations than any other league franchises. To no one's surprise, we see that the payroll for players that play for NFL teams tend to be higher than players who play different sports.
+
+Conversely, the HL players tend to make less than professional athletes who play in the MLB, NBA, and NFL.  One interesting point that we took away from the scatter plot is that a decent amount of MLB teams pay their players more than the athletes in the NBA, even though the valuation of those MLB teams tends to be lower than the valuation of the NBA teams. This fact reveals that MLB teams may pay their players a disproportionate amount of money concerning the overall valuation of the franchise.
+ 
 ```{r}
-bar_data_payroll <- scatter_data |>
-  arrange(desc(payroll)) |>
-  head(25)
-
-bar_data_value <- scatter_data |>
-  arrange(desc(value)) |>
-  head(25)
-
 bar_in_both <- inner_join(bar_data_value, bar_data_payroll, by = "team")
-
-nrow(bar_in_both)
-
-ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league)) +
-  geom_col() +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
-  labs(
-    title = "25 Teams with the Highest Valuation",
-    x = "Team",
-    y = "Total Valuation ($)",
-    fill = "League"
-  ) 
-
-ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
-  geom_col() +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
-  labs(
-    title = "30 Teams with the Highest Payroll",
-    x = "Team",
-    y = "Payroll ($)",
-    fill = "League"
-  ) 
 
 correlation_val <- cor(scatter_data$value, scatter_data$payroll)
 
@@ -172,46 +207,10 @@ ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
     y = "Payroll ($USD)",
     color = "League"
   )
-
-
 ```
 
 
-Examples and additional guidance are provided below. 
-
-Take note of the the default code chunk options in the `setup` code chunk. For example, unlike the rest of the Rmd files we worked in this semester, the default code chunk option is `echo = FALSE`, so you will need to set `echo  = TRUE` for any code chunks you would like to display in the blog. You should be thoughtful and intentional about the code you choose to display. 
-
-
-## Links 
-
-You can include [links](https://www.datadreaming.org/post/r-markdown-theme-gallery/) using Markdown syntax as shown. 
-
-You should include links to relevant sites as you write. You should additionally include a list of references as the end of your blog with full citations (and relevant links).
-
-
-## Visualizations 
-
-Visualizations, particularly interactive ones, will be well-received. That said, do not overuse visualizations. You may be better off with one complicated but well-crafted visualization as opposed to many quick-and-dirty plots. Any plots should be well-thought-out, properly labeled, informative, and visually appealing.
-
-If you want to include dynamic visualizations or tables, you should explore your options from packages that are built from [**htmlwidgets**](https://www.htmlwidgets.org/showcase_leaflet.html). These **htmlwidgets**-based packages offer ways to build lighterweight, dynamic visualizations or tables that don't require an R server to run! A more complete list of packages is available on the linked website, but a short list includes:
-
-* [**plotly**](https://plot.ly/r/): Interactive graphics with D3
-* [**leaflet**](https://rstudio.github.io/leaflet/): Interactive maps with OpenStreetMap
-* [**dygraphs**](http://rstudio.github.io/dygraphs): Interactive time series visualization
-* [**visNetwork**](http://dataknowledge.github.io/visNetwork): Network graph visualization vis.js
-* [**sparkline**](https://github.com/htmlwidgets/sparkline): Small inline charts
-* [**threejs**](https://github.com/bwlewis/rthreejs): Interactive 3D graphics
-    
-You may embed a published Shiny app in your blog if useful, but be aware that there is a limited window size for embedded objects, which tends to makes the user experience of the app worse relative to a dedicated Shiny app page. Additionally, Shiny apps will go idle after a few minutes and have to be reloaded by the user, which may also affect the user experience. 
-
-Any Shiny apps embedded in your blog should be accompanied by the link to the published Shiny app (I did this using a figure caption in the code chunk below, but you don't have to incorporate the link in this way).
-
-```{r ds-salaries-app, out.width = "100%", out.extra = 'data-external="1" frameborder="no"', fig.cap = "[Data Science Salaries Shiny App](https://bebailey.shinyapps.io/data-science-salaries)"}
-knitr::include_app("https://bebailey.shinyapps.io/data-science-salaries",
-                   height = "500px")
-```
-
-## Map
+## Interactive Map
 
 ```{r}
 library(shiny)
@@ -246,195 +245,6 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 
 ```
-
-## Tables
-
-### **DT** package
-
-The [**DT** package](https://rstudio.github.io/DT/) is great for making dynamic tables that can be displayed, searched, and filtered by the user without needing an R server or Shiny app!
-
-Note: you should load any packages you use in the `setup` code chunk as usual. The `library()` functions are shown below just for demonstration.
-
-```{r dt-example, message=FALSE, echo=TRUE}
-library(DT)
-mtcars %>% 
-  select(mpg, cyl, hp) %>% 
-  datatable(colnames = c("MPG", "Number of cylinders", "Horsepower"),
-            filter = 'top',
-            options = list(pageLength = 10, autoWidth = TRUE))
-```
-
-### **kableExtra** package
-
-You can also use [**kableExtra**](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) for customizing HTML tables.
-
-```{r kable-example, echo=TRUE, message=FALSE}
-library(kableExtra)
-summary(cars) %>%
-  kbl(col.names = c("Speed", "Distance"),
-      row.names = FALSE) %>%
-  kable_styling(bootstrap_options = "striped",
-                full_width = FALSE) %>%
-  row_spec(0, bold = TRUE) %>%
-  column_spec(1:2, width = "1.5in") 
-```
-
-
-## Images
-
-Images and gifs can be displayed using code chunks:
-
-```{r, fig.cap='"Safe Space" by artist Kenesha Sneed', out.width="80%", fig.align="center"}
-knitr::include_graphics("img/Kenesha-Sneed_safe-space.jpeg")
-```
-
-
-```{r, fig.cap="This is a figure caption", out.width="50%", fig.align="center"}
-knitr::include_graphics("https://media.giphy.com/media/H7ZrrA9V2pd3Tehdds/giphy.gif")
-```
-
-You may also use Markdown syntax for displaying images as shown below, but code chunks offer easier customization of the image size and alignment.
-
-![This is another figure caption](https://media.giphy.com/media/8i5IvxP9ZLgmjXN1BF/giphy.gif)
-
-Either way, the file path can be a local path within your project directory or a URL for an image hosted online. This syntax works for PNG, PDF, JPG, and even GIF formats.
-
-
-## Videos
-
-You can use code chunks or Markdown syntax include links to any valid YouTube or Vimeo URLs (see [here](https://bookdown.org/yihui/rmarkdown/learnr-videos.html) for details) or point to a location within your project directory. 
-
-Code chunk:
-
-```{r, out.width="80%", fig.align="center"}
-knitr::include_url("https://www.youtube.com/watch?v=up8ODGFWgFg")
-```
-
-Markdown syntax:
-
-![](https://www.youtube.com/watch?v=up8ODGFWgFg){width="90%"}
-
-
-You may need to push your updates to GitHub to see if the videos work.
-
-
-
-
-## Equations
-
-You might include equations if part of the purpose of your blog is to explain a statistical method. There are two ways to include equations:
-
-* Inline: $b \sim N(0, \sigma^2_b)$
-* Display-style (displayed on its own line): 
-$$\frac{\sigma^2_b}{\sigma^2_b + \sigma^2_e}$$
-
-For typesetting equations appropriately, check out the [AMS-LaTeX quick reference](https://github.com/manuelemacchia/math-latex/blob/master/amsmath.pdf) or take a look at the *Symbols in math mode* section of this  [cheat sheet](https://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf)  (or do some extra Googling---there are *many* resources).
-
-
-
-# Formatting
-
-## Tabbed subsections {.tabset}
-
-Each subsection below the "Tabbed subsections" section heading will appear in a tab. See R Markdown Cookbook [Section 7.6: Put content in tabs](https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html) for additional customization options. 
-
-### Bulleted list
-
-You can make a bulleted list like this:
-
-* item 1
-* item 2
-* item 3
-
-
-### Numbered list
-
-
-You can make a numbered list like this
-
-1. First thing I want to say
-2. Second thing I want to say
-3. Third thing I want to say
-
-
-
-## Column formatting
-
-<!-- Begin columns environment -->
-:::::: {style="display: flex; font-size: large;"}
-
-<!-- Create a column -->
-::: {}
-### Content Column 1
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel ipsum eu sem facilisis porttitor. Integer eu tristique lectus. Vestibulum nisi risus, porta sit amet cursus nec, auctor ac tellus. Integer egestas viverra rhoncus. Fusce id sem non ante vestibulum posuere ac sed lorem. Proin id felis a mi pellentesque viverra in at nulla. Duis augue nulla, aliquet ac ligula a, sagittis varius lorem.
-
-
-
-:::
-
-<!-- Create another column (this one is just adding horizontal space to separate content) -->
-::: {}
-<div class="horizontalgap" style="width:60px"></div>
-:::
-
-<!-- Create another column -->
-::: {}
-
-### Content Column 2
-
-Aliquam non ante et erat luctus hendrerit eu ac justo. Fusce lacinia pulvinar neque non laoreet. Fusce vitae mauris pharetra, scelerisque purus eget, pharetra nisl. Aenean volutpat elementum tortor vitae rhoncus. Phasellus nec tellus euismod neque congue imperdiet tincidunt in mauris. Morbi eu lorem molestie, hendrerit lorem nec, semper massa. Sed vulputate hendrerit ex, eget cursus purus. Pellentesque consequat erat leo, eleifend porttitor lacus porta at. Vivamus faucibus quam ipsum, id condimentum ligula malesuada ultrices. Nullam luctus leo elit, vitae rutrum nibh venenatis eget. Nam at sodales purus. Proin nulla tellus, lacinia eget pretium sed, vehicula aliquet neque. Morbi vel eros elementum, suscipit elit eu, consequat libero. Nulla nec aliquet neque. Nunc bibendum sapien lectus, sed elementum nisi rutrum non. Ut vulputate at lacus eget maximus.
-
-```{r, out.width="80%", fig.align="right"}
-mtcars %>% 
-  ggplot(aes(x = wt, y = mpg)) +
-  geom_point()
-```
-
-:::
-::::::
-<!-- End columns environment with matching length indicator-->
-
-
-
-
-# Customizing your blog design
-
-
-As a *final* detail **only** if you have time, you can explore options for customizing the style of your blog. By default, we are using the `readthedown` theme from the [**rmdformats** package](https://github.com/juba/rmdformats) (see Line 6 of this file if you want to switch out themes).
-
-
-## Theme
-You can use the [**rmdformats** package](https://github.com/juba/rmdformats) to play around with some pre-built themes. There are, I'm sure, many many many more similar packages with built in themes, or you can look into how to include a CSS code chunk to customize aspects of a theme.  
-
-Using the **rmdformats** package, you can change the theme itself (Line 6): 
-
-* `rmdformats::readthedown`
-* `rmdformats::downcute` 
-  * For `downcute` only, you can add a new indented line below Line 6 with the code `downcute_theme: "chaos"` for the `downcute chaos` theme
-* `rmdformats::robobook` 
-* `rmdformats::material`
-
-You can explore additional YAML options by looking at the [**rmdformats** package](https://github.com/juba/rmdformats) page or running, for example, `?rmdformats::readthedown()` to see the help documentation for a particular theme from the package. 
-
-## Synax highlighting
-
-You can also change the code chunk syntax highlighting option (Line 7, `highlight`): 
-
-* `"default"`
-* `"tango"`
-* `"pygments"`
-* `"kate"`
-* `"monochrome"`
-* `"espresso"`
-* `"zenburn"`
-* `"haddock"`
-* `"textmate"` 
-* `NULL` for no syntax highlighting (not recommended)
-
-## Font size, type, and other customization
-
-Further customization requires adding a CSS style file or code chunk or incorporating other development options. Customization beyond the **rmdformats** package should be your lowest and final priority for the project. Ensure your content is fully prepared first.
 
 
 # References
