@@ -213,40 +213,12 @@ ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
 ## Interactive Map
 
 ```{r}
-library(shiny)
-library(leaflet)
-library(dplyr)
+#| label: ds-salaries-app
+#| out.width: "100%"
 
-ui <- fluidPage(
-  titlePanel("Sports Team Analysis"),
-  selectInput("league", "Choose a League:", choices = c("NFL", "NHL", "NBA", "MLB")),
-  selectInput("variable", "Select Variable:", choices = c("payroll", "win_percentage", "value")),
-  leafletOutput("map")
-)
-
-server <- function(input, output) {
-  
-  data <- read.csv("wrangled_data.csv")
-  
-  filteredData <- reactive({
-    data %>% filter(league == input$league)
-  })
-  
-  output$map <- renderLeaflet({
-    leaflet(filteredData()) %>%
-      addTiles() %>%
-      addCircleMarkers(
-        lng = ~longitude, lat = ~latitude,
-        radius = ~scales::rescale(get(input$variable), to = c(5, 15)),
-        popup = ~paste(team, "<br>", input$variable, ": ", get(input$variable))
-      )
-  })
-}
-
-shinyApp(ui = ui, server = server)
+knitr::include_app("https://jluetke.shinyapps.io/blog-data-wranglers/",
+                   height = "500px")
 ```
-
-
 
 # References
 

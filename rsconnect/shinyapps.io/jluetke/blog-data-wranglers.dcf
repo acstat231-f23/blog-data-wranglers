@@ -1,0 +1,13 @@
+name: blog-data-wranglers
+title: blog-data-wranglers
+username: jluetke
+account: jluetke
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10782249
+bundleId: 8040499
+url: https://jluetke.shinyapps.io/blog-data-wranglers/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data-wrangle2.R|img/Kenesha-Sneed_safe-space.jpeg|img/TopImage.jpeg|index.html|index.qmd|index.Rmd|README.md|data|sports_valuation
