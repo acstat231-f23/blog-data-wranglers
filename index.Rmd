@@ -160,8 +160,6 @@ ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)
 ```
 
 
-
-
 ## Relationship Between Value and Payroll
 	
 Lastly, we found that, across the major professional sports leagues in the United States, there is another discernable positive correlation between a team's valuation and the investments made in player salaries. After creating a scatter plot with “Valuation” on the x-axis and “Payroll” on the y-axis and including the teams from each league, we found a consistent pattern where teams with higher valuations tended to allocate more compensation towards their players. This was most evident when comparing the NHL and the NFL, as they have the largest discrepancies between valuation and payroll. NHL franchises have, on average, lower valuations than any other league franchises in the United States. The opposite is true for the NFL as football teams tend to have higher valuations than any other league franchises. To no one's surprise, we see that the payroll for players that play for NFL teams tend to be higher than players who play different sports.
