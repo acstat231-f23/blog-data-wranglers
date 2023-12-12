@@ -5,13 +5,17 @@ library(dplyr)
 ui <- fluidPage(
   titlePanel("Sports Team Analysis"),
   selectInput("league", "Choose a League:", choices = c("NFL", "NHL", "NBA", "MLB")),
-  selectInput("variable", "Select Variable:", choices = c("payroll", "win_percentage", "value")),
+  selectInput("variable", "Select Variable:", choices = c("Payroll" = "payroll", 
+                                                          "Win Percentage" = "win_percentage", 
+                                                          "Value" = "value")),
   leafletOutput("map")
 )
 
 server <- function(input, output) {
   
   data <- read.csv("wrangled_data.csv")
+  
+  variableNames <- c(payroll = "Payroll", win_percentage = "Win Percentage", value = "Value")
   
   filteredData <- reactive({
     data %>% filter(league == input$league)
@@ -22,7 +26,8 @@ server <- function(input, output) {
       addTiles() %>%
       addCircleMarkers(
         lng = ~longitude, lat = ~latitude,
-        popup = ~paste(team, "<br>", input$variable, ": ", get(input$variable))
+        radius = ~scales::rescale(get(input$variable), to = c(5, 15)),
+        popup = ~paste(team, "<br>", variableNames[[input$variable]], ": ", get(input$variable))
       )
   })
 }
