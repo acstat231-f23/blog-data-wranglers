@@ -90,25 +90,6 @@ ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = le
     fill = "League"
   ) 
 
-correlation_val <- cor(scatter_data$value, scatter_data$payroll)
-
-ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
-  geom_point() +
-  theme_minimal() +
-  geom_text(
-    x = 1700000000,
-    y = 320000000,
-    label = paste("r=", round(correlation_val, 3)),
-    show.legend = FALSE,
-    color = "black"
-  ) +
-  labs(
-    title = "Relationship between Value and Payroll",
-    subtitle = "Data from 2022-23 Seasons",
-    x = "Team Valuation ($USD)",
-    y = "Payroll ($USD)",
-    color = "League"
-  )
 ```
 
 
@@ -177,6 +158,8 @@ ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)
     y = "2022-23 Win Percentage"
   ) 
 ```
+
+
 
 
 ## Relationship Between Value and Payroll

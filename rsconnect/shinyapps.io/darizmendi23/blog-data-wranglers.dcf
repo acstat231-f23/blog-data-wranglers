@@ -1,0 +1,12 @@
+name: blog-data-wranglers
+title: blog-data-wranglers
+username: darizmendi23
+account: darizmendi23
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10723333
+bundleId:
+url: https://darizmendi23.shinyapps.io/blog-data-wranglers/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
