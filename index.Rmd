@@ -53,9 +53,21 @@ bar_data_value <- scatter_data |>
   arrange(desc(value)) |>
   head(25)
 
+bar_data_payroll <- scatter_data |>
+  arrange(desc(payroll)) |>
+  head(25)
+
+unique_colors_value <- unique(bar_data_value[, c("league", "color")])
+unique_colors_payroll <- unique(bar_data_payroll[, c("league", "color")])
+
+all_unique_colors <- unique(rbind(unique_colors_value, unique_colors_payroll))
+
+# Create a consistent color scale for both plots
+color_scale <- scale_fill_manual(values = setNames(all_unique_colors$color, all_unique_colors$league))
+
 ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league)) +
   geom_col() +
-  scale_fill_manual(values = unique(bar_data_value$color)) +
+  color_scale +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
@@ -72,13 +84,11 @@ ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league))
 We then dove into the payroll commitments that teams make to their players. Utilizing another bar chart to examine the top 25 teams (x-axis) with the highest payrolls (y-axis), we identified that 10 of these teams also appeared on the list of the 25 teams with the highest valuation. This observation, however, seemed less significant, indicating that less than half of the teams valued the highest don't always allocate a proportionate share of their finances to player salaries. Of course, our inquiry only examines team spending over the most recent season. Nonetheless, we also found similar trends in the payroll graph to the valuation: 18 out of the 25 highest payroll teams hailed from the NFL, while the remaining 7 belonged to the MLB. This ultimately, suggests that the NFL, in particular, places substantial emphasis on player salaries compared to other leagues.
 
 ```{r}
-bar_data_payroll <- scatter_data |>
-  arrange(desc(payroll)) |>
-  head(25)
+
 
 ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
   geom_col() +
-  scale_fill_manual(values = unique(bar_data_payroll$color)) +
+  color_scale +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
@@ -95,10 +105,17 @@ ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = le
 In our analysis of winning percentage and payroll, we found there tends to be a positive relationship between how much players are paid and the teams’ success across all four leagues in the United States. We put together scatter plots for each league with the team’s  “Player Payroll” on the x-axis and the team’s “Winning Percentage” on the y-axis. This positive correlation suggests that a considerable investment in player salaries aligns with more success in professional sports in the United States. More success also generally leads to more ticket sales and investment in the franchise, which likely results in a higher valuation for the franchise. A higher payroll also signals that these teams have some of the best players in their respective leagues, as star players always charge more. These findings provide valuable insights into the intricate dynamics between financial investment in player talent and the competitive performance of sports teams, which ultimately go to show that, in most cases, teams that have more success are paying their players more, and also suggests that they have some of the most highly sought-after players in their league. 
 
 ```{r}
+unique_colors_scatter <- unique(scatter_data[, c("league", "color")])
+
+# Combine unique colors from the scatterplot data with the previously defined colors
+all_unique_colors_scatter <- unique(rbind(all_unique_colors, unique_colors_scatter))
+
+# Create a consistent color scale for the scatterplot
+color_scale_scatter <- scale_color_manual(values = setNames(all_unique_colors_scatter$color, all_unique_colors_scatter$league))
 
 ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)) +
   geom_point() +
-  scale_color_manual(values = unique(scatter_data$color)) +
+  color_scale_scatter +
   geom_smooth(method = "lm", se = FALSE) +
   labs(
     title = "The Relationship Between Payroll and Winning Percentage by League",
@@ -123,7 +140,7 @@ correlation_val <- cor(scatter_data$value, scatter_data$payroll)
 
 ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
   geom_point() +
-  scale_color_manual(values = unique(scatter_data$color)) +
+  color_scale_scatter +
   theme_minimal() +
   geom_text(
     x = 1700000000,
