@@ -33,7 +33,7 @@ stadiums <- read_csv("data/stadium-loc.csv")
 
 #NFL
 nfl_val_wrangle <- NFL_Value |>
-  mutate(team = Name, value = Value * 1000000000, league = "NFL") |>
+  mutate(team = Name, value = Value * 1000000000, league = "NFL", color = "#872bd4") |>
   select(team, value, league)
 
 nfl_payroll_wrangle <- NFL_Payroll |>
@@ -47,7 +47,7 @@ nfl_win_wrangle <- NFL_Win |>
 
 #MLB
 mlb_val_wrangle <- MLB_Value |>
-  mutate(team = Name, value = Value * 1000000, league = "MLB") |>
+  mutate(team = Name, value = Value * 1000000, league = "MLB", color = "#2d9e26") |>
   select(team, value, league)
 
 mlb_payroll_wrangle <- MLB_Payroll |>
@@ -61,7 +61,7 @@ mlb_win_wrangle <- MLB_Win |>
 
 #NHL
 nhl_val_wrangle <- NHL_Value |>
-  mutate(team = Name, value = Value * 1000000, league = "NHL") |>
+  mutate(team = Name, value = Value * 1000000, league = "NHL", color = "#3395df") |>
   select(team, value, league)
 
 nhl_payroll_wrangle <- NHL_Payroll |>
@@ -75,7 +75,7 @@ nhl_win_wrangle <- NHL_Win |>
 
 #NBA
 nba_val_wrangle <- NBA_Value |>
-  mutate(team = Name, value = Value * 1000000000, league = "NBA") |>
+  mutate(team = Name, value = Value * 1000000000, league = "NBA", color = "#c71a1a") |>
   select(team, value, league)
 
 nba_payroll_wrangle <- NBA_Payroll |>
