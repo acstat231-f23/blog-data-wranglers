@@ -59,6 +59,7 @@ bar_data_value <- scatter_data |>
 
 ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league)) +
   geom_col() +
+  scale_fill_manual(values = unique(bar_data_value$color)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
@@ -81,10 +82,11 @@ bar_data_payroll <- scatter_data |>
 
 ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
   geom_col() +
+  scale_fill_manual(values = unique(bar_data_payroll$color)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
-    title = "30 Teams with the Highest Payroll",
+    title = "25 Teams with the Highest Payroll",
     x = "Team",
     y = "Payroll ($)",
     fill = "League"
@@ -101,62 +103,15 @@ In our analysis of winning percentage and payroll, we found there tends to be a 
 #scatterplot
 ```{r}
 
-mlb_data <- scatter_data |>
-  filter(league == "MLB")
-
-nba_data <- scatter_data |>
-  filter(league == "NBA")
-
-nfl_data <- scatter_data |>
-  filter(league == "NFL")
-
-nhl_data <- scatter_data |>
-  filter(league == "NHL")
-
-ggplot(data = mlb_data, aes(x = payroll, y = win_percentage)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "MLB: The Relationship Between Payroll and Winning Percentage",
-    x = "Player Payroll ($)",
-    y = "2023 Win Percentage"
-  )
-
-ggplot(data = nfl_data, aes(x = payroll, y = win_percentage)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "NFL: The Relationship Between Payroll and Winning Percentage",
-    x = "Player Payroll ($)",
-    y = "2022-23 Win Percentage"
-  )
-
-ggplot(data = nba_data, aes(x = payroll, y = win_percentage)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "NBA: The Relationship Between Payroll and Winning Percentage",
-    x = "Player Payroll ($)",
-    y = "2022-23 Win Percentage"
-  )
-
-ggplot(data = nhl_data, aes(x = payroll, y = win_percentage)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "NHL: The Relationship Between Payroll and Winning Percentage",
-    x = "Player Payroll ($)",
-    y = "2022-23 Win Percentage"
-  )
-
 ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
+  scale_color_manual(values = unique(scatter_data$color)) +  # Set color based on the "color" column
   labs(
     title = "The Relationship Between Payroll and Winning Percentage by League",
     x = "Player Payroll ($)",
     y = "2022-23 Win Percentage"
-  ) 
+  )
 ```
 
 
@@ -173,6 +128,7 @@ correlation_val <- cor(scatter_data$value, scatter_data$payroll)
 
 ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
   geom_point() +
+  scale_color_manual(values = unique(scatter_data$color)) +
   theme_minimal() +
   geom_text(
     x = 1700000000,
