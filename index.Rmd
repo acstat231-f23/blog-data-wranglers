@@ -59,7 +59,6 @@ bar_data_value <- scatter_data |>
 
 ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league)) +
   geom_col() +
-  scale_fill_manual(values = unique(bar_data_value$color)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
@@ -82,11 +81,10 @@ bar_data_payroll <- scatter_data |>
 
 ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
   geom_col() +
-  scale_fill_manual(values = unique(bar_data_payroll$color)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
-    title = "25 Teams with the Highest Payroll",
+    title = "30 Teams with the Highest Payroll",
     x = "Team",
     y = "Payroll ($)",
     fill = "League"
@@ -103,16 +101,65 @@ In our analysis of winning percentage and payroll, we found there tends to be a 
 #scatterplot
 ```{r}
 
+mlb_data <- scatter_data |>
+  filter(league == "MLB")
+
+nba_data <- scatter_data |>
+  filter(league == "NBA")
+
+nfl_data <- scatter_data |>
+  filter(league == "NFL")
+
+nhl_data <- scatter_data |>
+  filter(league == "NHL")
+
+ggplot(data = mlb_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "MLB: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2023 Win Percentage"
+  )
+
+ggplot(data = nfl_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "NFL: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  )
+
+ggplot(data = nba_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "NBA: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  )
+
+ggplot(data = nhl_data, aes(x = payroll, y = win_percentage)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "NHL: The Relationship Between Payroll and Winning Percentage",
+    x = "Player Payroll ($)",
+    y = "2022-23 Win Percentage"
+  )
+
 ggplot(data = scatter_data, aes(x = payroll, y = win_percentage, color = league)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
-  scale_color_manual(values = unique(scatter_data$color)) +  # Set color based on the "color" column
   labs(
     title = "The Relationship Between Payroll and Winning Percentage by League",
     x = "Player Payroll ($)",
     y = "2022-23 Win Percentage"
-  )
+  ) 
 ```
+
+
 
 
 ## Relationship Between Value and Payroll
@@ -128,7 +175,6 @@ correlation_val <- cor(scatter_data$value, scatter_data$payroll)
 
 ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
   geom_point() +
-  scale_color_manual(values = unique(scatter_data$color)) +
   theme_minimal() +
   geom_text(
     x = 1700000000,
@@ -159,40 +205,25 @@ knitr::include_app("https://jluetke.shinyapps.io/blog-data-wranglers/",
 
 # References
 
-All data sources, any key R packages, and any other sources used in developing your blog should be cited in full in a list of references at the end of your blog. Your blog post should also link to these sources as they are discussed. You may choose any reference style as long as sources are fully cited (try to be consistent!).
-
-Typically, references in R Markdown (and LaTeX) files are [incorporated with a BibTeX database](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html) (a .bib file). You can try this approach or manually include either a numbered or alphabetized list. 
-
-Columbia University has compiled some guidance on [how to cite data](https://guides.library.columbia.edu/datacitation). Some data sources will give you the citation information to copy and paste. Use the provided citations or citation styles in those cases.
-
-You can list R package citations with the code `citation("packageName")` in the console and then copy (and reformat as needed) the relevant text, e.g.,
-```{r}
-citation("DT")
-```
-
-The following citations are based on the American Statistical Association citation style (not all of these references are used in this document).:
-
-
-<!-- Textbook -->
-Baumer, B. S., Kaplan, D. T., and Horton, N. J. (2021), *Modern Data Science with R* (2nd ed.), Boca Raton, FL: CRC Press.
-
-<!-- Journal article -->
-Broman, K. W. and Woo, K. H. (2018), "Data Organization in Spreadsheets," *The American Statistician*, 72:1, 2-10, doi: [10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989)
-
-<!-- Website -->
-Columbia University Libraries (n.d.), "Data Citation," available at <https://guides.library.columbia.edu/datacitation>.
-
-<!-- Journal article -->
-McNamara, A. and Horton N. J. (2018) "Wrangling Categorical Data in R," *The American Statistician*, 72:1, 97-104, doi: [10.1080/00031305.2017.1356375](https://doi.org/10.1080/00031305.2017.1356375).
-
-<!-- Dataset -->
-Shah, Syed A. A. (October 2022), "Starbucks Drinks" (Version 1), *Kaggle*, available at <https://www.kaggle.com/datasets/syedasimalishah/starbucks-drinks>.
-
-<!-- R package -->
-Xie Y, Cheng J, Tan X (2022). "DT: A Wrapper of the JavaScript Library 'DataTables'," R package version 0.24, available at <https://CRAN.R-project.org/package=DT>.
+Chang W, Cheng J, Allaire J, Sievert C, Schloerke B, Xie Y, Allen J, -McPherson J, Dipert A, Borges B (2023). _shiny: Web Application
+Framework for R_. R package version 1.7.5, <https://CRAN.R-project.org/package=shiny>.
   
+Cheng J, Schloerke B, Karambelkar B, Xie Y (2023). _leaflet: Create Interactive Web Maps with the JavaScript 'Leaflet' Library_. R
+package version 2.2.0, <https://CRAN.R-project.org/package=leaflet>.
 
+Forbes. (August 30, 2023). Franchise value of National Football League teams in 2023 (in billion U.S. dollars). In Statista. <https://www.statista.com/statistics/193534/franchise-value-of-national-football-league-teams-in-2010/>
 
- 
+Forbes. (December 14, 2022). National Hockey League franchise value in 2022, by team (in million U.S. dollars). In Statista. <https://www.statista.com/statistics/193732/franchise-value-of-national-hockey-league-teams-in-2010/>
 
+Gough, Christina. “MLB Franchise Values 2023.” Statista, 5 Sept. 2023, <https://www.statista.com/statistics/193637/franchise-value-of-major-league-baseball-teams-in-2010/>. 
 
+“NFL 2022 Aav Tracker.” Spotrac.Com, <https://www.spotrac.com/nfl/aav/2022/>.
+
+Statista Research Department, and Oct 30. “NBA Franchise Values 2023.” Statista, 30 Oct. 2023, <https://www.statista.com/statistics/193696/franchise-value-of-national-basketball-association-teams-in-2010/>. 
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller
+E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). "Welcome to
+the tidyverse." _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
+
+Wickham H, François R, Henry L, Müller K, Vaughan D (2023). _dplyr: A Grammar of Data Manipulation_. R package version 1.1.3,
+<https://CRAN.R-project.org/package=dplyr>.
