@@ -26,6 +26,7 @@ library(dplyr)
 ```{r}
 #| out.width: 120%
 #| fig.align: center
+# Code for our Opening Image
 knitr::include_graphics("img/TopImage.jpeg")
 ```
 
@@ -47,36 +48,43 @@ For the visualization and analytical part of our project, we adopted a multi-fac
 When we visualize the team valuation data across the four major sports leagues, we find a noteworthy observation that stems from an analysis of the 25 teams with the highest valuation. Our bar chart (Figure 1, below), which has “Teams” on the x-axis “Total Valuation” on the y-axis, we see that a staggering 18 out of the top 25 are affiliated with the National Football League (NFL). This statistic emphasizes the NFL's popularity, and we can conclude that it is the most watched sports league in the country. For those seven non-NFL teams that are in the top 25 highest valued, we would expect that they have had a lot of success. Our rationale for this assumption is that in their elevated valuations not only within their respective leagues but also across all of the sports teams in the United States. We assumed that this financial standing positions them as economic powerhouses, suggesting that their prowess extends beyond the realms of revenue generation to potentially encompass on-field triumphs and enduring success in their respective sports. 
 
 ```{r}
+# Read the data
 scatter_data <- read.csv("wrangled_data.csv")
 
+# Select top 25 teams by valuation
 bar_data_value <- scatter_data |>
   arrange(desc(value)) |>
   head(25)
 
+# Select top 25 teams by payroll
 bar_data_payroll <- scatter_data |>
   arrange(desc(payroll)) |>
   head(25)
 
+# Extract color codes for leagues
 unique_colors_value <- unique(bar_data_value[, c("league", "color")])
+# Extract color codes for leagues
 unique_colors_payroll <- unique(bar_data_payroll[, c("league", "color")])
 
+# Combine color information from both datasets
 all_unique_colors <- unique(rbind(unique_colors_value, unique_colors_payroll))
 
-# Create a consistent color scale for both plots
+# Create color scale for both plots using the combined color information
 color_scale <- scale_fill_manual(values = setNames(all_unique_colors$color, all_unique_colors$league))
 
+# Create a bar chart for the top 25 teams by valuation
 ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league)) +
   geom_col() +
-  color_scale +
-  theme_minimal() +
+  color_scale +  # Apply the color scale
+  theme_minimal() + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
     title = "25 Teams with the Highest Valuation",
-    x = "Team",
+    x = "Team",  
     y = "Total Valuation ($)",
     fill = "League",
     caption = "Figure 1"
-  ) 
+  )
 ```
 
 ## Team Payroll
@@ -84,12 +92,11 @@ ggplot(bar_data_value, aes(x = reorder(team, -value), y = value, fill = league))
 We then dove into the payroll commitments that teams make to their players. Utilizing another bar chart to examine the top 25 teams (x-axis) with the highest payrolls (y-axis), we identified that 10 of these teams also appeared on the list of the 25 teams with the highest valuation. This observation, however, seemed less significant, indicating that less than half of the teams valued the highest don't always allocate a proportionate share of their finances to player salaries. Of course, our inquiry only examines team spending over the most recent season. Nonetheless, we also found similar trends in the payroll graph to the valuation: 18 out of the 25 highest payroll teams hailed from the NFL, while the remaining 7 belonged to the MLB. This ultimately, suggests that the NFL, in particular, places substantial emphasis on player salaries compared to other leagues.
 
 ```{r}
-
-
+# Create a bar chart for the top 30 teams by payroll
 ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = league)) +
   geom_col() +
-  color_scale +
-  theme_minimal() +
+  color_scale +  # Apply the color scale
+  theme_minimal() + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  + # Rotate x-axis labels for better readability
   labs(
     title = "30 Teams with the Highest Payroll",
@@ -97,7 +104,6 @@ ggplot(bar_data_payroll, aes(x = reorder(team, -payroll), y = payroll, fill = le
     y = "Payroll ($)",
     fill = "League"
   ) 
-
 ```
 
 ## Relationship between Payroll and Winning Percentage
@@ -134,28 +140,32 @@ Lastly, we found that, across the major professional sports leagues in the Unite
 Conversely, the HL players tend to make less than professional athletes who play in the MLB, NBA, and NFL.  One interesting point that we took away from the scatter plot is that a decent amount of MLB teams pay their players more than the athletes in the NBA, even though the valuation of those MLB teams tends to be lower than the valuation of the NBA teams. This fact reveals that MLB teams may pay their players a disproportionate amount of money concerning the overall valuation of the franchise.
  
 ```{r}
+# Join the datasets containing the top 25 teams by valuation and payroll
 bar_in_both <- inner_join(bar_data_value, bar_data_payroll, by = "team")
 
+# Calculate the correlation coefficient between team valuation and payroll
 correlation_val <- cor(scatter_data$value, scatter_data$payroll)
 
+# Create a scatter plot to show the relationship between team valuation and payroll
 ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
   geom_point() +
-  color_scale_scatter +
-  theme_minimal() +
+  scale_color_manual(values = unique(scatter_data$color)) +  # Manually set colors for different leagues
+  theme_minimal() + 
   geom_text(
-    x = 1700000000,
-    y = 320000000,
-    label = paste("r=", round(correlation_val, 3)),
+    x = 1700000000,  # x-coordinate for correlation text
+    y = 320000000,   # y-coordinate for correlation text
+    label = paste("r=", round(correlation_val, 3)),  # Display the correlation coefficient
     show.legend = FALSE,
     color = "black"
   ) +
   labs(
-    title = "Relationship between Value and Payroll",
-    subtitle = "Data from 2022-23 Seasons",
+    title = "Relationship between Value and Payroll", 
+    subtitle = "Data from 2022-23 Seasons", 
     x = "Team Valuation ($USD)",
     y = "Payroll ($USD)",
     color = "League"
   )
+
 ```
 
 ## Interactive Map
@@ -163,10 +173,11 @@ ggplot(scatter_data, aes(x = value, y = payroll, color = league)) +
 ```{r}
 #| label: ds-salaries-app
 #| out.width: "100%"
-
+# Display published Shiny App
 knitr::include_app("https://jluetke.shinyapps.io/blog-data-wranglers/",
                    height = "625px")
 ```
+
 
 # References
 
