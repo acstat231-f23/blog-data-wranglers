@@ -6,7 +6,7 @@ MLB,Fenway Park,Boston Red Sox,BOS,42.34638889,-71.0975
 MLB,Wrigley Field,Chicago Cubs,CHC,41.94833333,-87.65555556
 MLB,U.S. Cellular Field,Chicago White Sox,CHW,41.83,-87.63388889
 MLB,Great American Ball Park,Cincinnati Reds,CIN,39.0975,-84.50666667
-MLB,Progressive Field,Cleveland Indians,CLE,41.49583333,-81.68527778
+MLB,Progressive Field,Cleveland Guardians,CLE,41.49583333,-81.68527778
 MLB,Coors Field,Colorado Rockies,COL,39.75611111,-104.9941667
 MLB,Comerica Park,Detroit Tigers,DET,42.33916667,-83.04861111
 MLB,Minute Maid Park,Houston Astros,HOU,29.75694444,-95.35555556
@@ -36,7 +36,7 @@ NFL,CenturyLink Field,Seattle Seahawks,SEA,47.59527778,-122.3316667
 NFL,Cowboys Stadium,Dallas Cowboys,DAL,32.74777778,-97.09277778
 NFL,SoFi Stadium,Los Angeles Rams,LAR,33.953587,-118.33963
 NFL,EverBank Field,Jacksonville Jaguars,JAC,30.32388889,-81.6375
-NFL,FedEx Field,Washington Redskins,WAS,38.90777778,-76.86444444
+NFL,FedEx Field,Washington Commanders,WAS,38.90777778,-76.86444444
 NFL,FirstEnergy Stadium,Cleveland Browns,CLE,41.50611111,-81.69944444
 NFL,Ford Field,Detroit Lions,DET,42.34,-83.04555556
 NFL,Georgia Dome,Atlanta Falcons,ATL,33.7575,-84.40083333
@@ -53,7 +53,7 @@ NFL,MetLife Stadium,New York Giants,NYG,40.81361111,-74.07444444
 NFL,MetLife Stadium,New York Jets,NYJ,40.81361111,-74.07444444
 NFL,Allegiant Stadium,Las Vegas Raiders,LV,36.090794,-115.183952
 NFL,Paul Brown Stadium,Cincinnati Bengals,CIN,39.09544444,-84.51603889
-NFL,Qualcomm Stadium,San Diego Chargers,SD,32.78305556,-117.1194444
+NFL,Qualcomm Stadium,Los Angeles Chargers,SD,32.78305556,-117.1194444
 NFL,Ralph Wilson Stadium,Buffalo Bills,BUF,42.77361111,-78.78694444
 NFL,Raymond James Stadium,Tampa Bay Buccaneers,TB,27.97583333,-82.50333333
 NFL,Reliant Stadium,Houston Texans,HOU,29.68472222,-95.41083333
